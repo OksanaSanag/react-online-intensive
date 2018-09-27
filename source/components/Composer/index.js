@@ -3,16 +3,18 @@ import React, { Component } from 'react';
 
 //Instruments
 
-import styles from './styles.m.css';
+import Styles from './styles.m.css';
 
 export default class Composer extends Component {
     render () {
+        const { avatar, currentUserFirstName } = this.props;
+
         return (
-            <section className = { styles.composer }>
-                <img src = { this.props.avatar } />
+            <section className = { Styles.composer }>
+                <img src = { avatar } />
                 <form>
                     <textarea
-                        placeholder = { `Whats on your mind, ${this.props.currentUserFirstName} ?` }
+                        placeholder = { `What's on your mind, ${currentUserFirstName} ?` }
                     />
                     <input type = 'submit' value = 'Post' />
                 </form>

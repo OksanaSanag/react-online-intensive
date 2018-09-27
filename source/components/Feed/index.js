@@ -8,24 +8,21 @@ import Post from 'components/Post';
 
 //Instruments
 import Styles from './styles.m.css';
-import avatar from "theme/assets/lisa";
-
-const options = {
-    avatar,
-    currentUserFirstName: 'Lisa',
-    currentUserLastName: 'Simpson',
-};
-
 export default class Feed extends Component {
-    render (){
+    render () {
+        const { avatar,
+            currentUserFirstName,
+            currentUserLastName,
+        } = this.props;
+
         return (
             <section className = { Styles.feed }>
-              <StatusBar />
-              <Composer 
-                  avatar = { options.avatar }
-                  currentUserFirstName = { options.currentUserFirstName }
-              />
-              <Post />
+                <StatusBar { ...this.props } />
+                <Composer
+                    avatar = { avatar }
+                    currentUserFirstName = { currentUserFirstName }
+                />
+                <Post { ...this.props } />
             </section>
         );
     }
