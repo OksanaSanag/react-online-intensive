@@ -46,7 +46,9 @@
         font-size: 14px;
     }
 
-    .cross {
+
+
+    & .cross {
         content: '';
         position: absolute;
         top: 12px;
@@ -58,7 +60,7 @@
         cursor: pointer;
 
         &:hover {
-            background-position: -13px;
+            background-position: -13px 0;
         }
     }
 }

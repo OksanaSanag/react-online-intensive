@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { string, func, arrayOf, shape } from 'prop-types';
 import cx from 'classnames';
 
-// Instruments
+//Instruments
 import Styles from './styles.m.css';
 
 export default class Like extends Component {
@@ -93,9 +93,9 @@ export default class Like extends Component {
         } else if (likes.length === 2 && likedByMe) {
             return `You and ${likes.length - 1} other`;
         } else if (likedByMe) {
-            return `You and ${likes.length -1} others`;
+            return `You and ${likes.length - 1} others`;
         }
-        
+
         return likes.length;
     }
 
@@ -107,7 +107,7 @@ export default class Like extends Component {
         return (
             <section className = { Styles.like }>
                 <span className = { likeStyles } onClick = { this._likePost }>
-                    Like
+                Like
                 </span>
                 <div>
                     {likersList}

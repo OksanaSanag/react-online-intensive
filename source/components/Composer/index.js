@@ -59,17 +59,19 @@ export default class Composer extends Component {
             this._submitComment();
         }
     }
+
     render () {
         const { comment } = this.state;
 
         return (
             <Consumer>
-                {(context) => (
+                { (context) => (
                     <section className = { Styles.composer }>
                         <img src = { context.avatar } />
                         <form onSubmit = { this._handleFormSubmit }>
                             <textarea
                                 placeholder = { `What's on your mind, ${context.currentUserFirstName} ?` }
+
                                 value = { comment }
                                 onChange = { this._updateComment }
                                 onKeyPress = { this._submitOnEnter }

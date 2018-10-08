@@ -32,7 +32,7 @@ export default class Feed extends Component {
             },
             {
                 id:      '456',
-                comment: 'Привіт!',
+                comment: 'Hello!',
                 created: 1526825078960,
                 likes:   [],
             }
@@ -106,7 +106,7 @@ export default class Feed extends Component {
     }
 
     render () {
-        const { isPostsFetching, posts } = this.state;
+        const { posts, isPostsFetching } = this.state;
 
         const postsJSX = posts.map((post) => {
             return <Post key = { post.id } { ...post } _likePost = { this._likePost } _removePost = { this._removePost } />;
