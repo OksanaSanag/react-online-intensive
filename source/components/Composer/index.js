@@ -62,7 +62,6 @@ export default class Composer extends Component {
                 <form onSubmit = { this._handleFormSubmit }>
                     <textarea
                         placeholder = { `What's on your mind, ${currentUserFirstName} ?` }
-
                         value = { comment }
                         onChange = { this._updateComment }
                         onKeyPress = { this._submitOnEnter }

@@ -94,7 +94,7 @@ export default class Feed extends Component {
             posts,
             isPostsFetching: false,
         });
-    };
+    }
 
     _createPost = async (comment) => {
         this._setPostsFetchingState(true);
@@ -114,7 +114,7 @@ export default class Feed extends Component {
             posts:           [post, ...posts],
             isPostsFetching: false,
         }));
-    };
+    }
 
     _removePost =async (id) => {
         this._setPostsFetchingState(true);

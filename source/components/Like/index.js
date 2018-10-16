@@ -88,7 +88,7 @@ export default class Like extends Component {
             return `You and ${likes.length - 1} others`;
         }
 
-        return likes.length;
+        //return likes.length;
     }
 
     render () {
