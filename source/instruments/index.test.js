@@ -47,4 +47,8 @@ describe('instruments:', () => {
     test('getFullApiUrl function should throw, when called with non-string type as second argument', () => {
         expect(() => getFullApiUrl('hi', 2)).toThrow();
     });
+
+    test('getFullApiUrl function ', () => {
+        expect(getFullApiUrl('hi', 'hi')).toBe('hi/hi');
+    });
 });
