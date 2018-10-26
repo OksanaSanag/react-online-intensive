@@ -4,7 +4,9 @@ import { mount } from 'enzyme';
 import { Composer } from './';
 
 const props = {
-    _createPost: jest.fn(),
+    _createPost:           jest.fn(),
+    avatar:                'MyAvatar',
+    _currentUserFirstName: 'Oksana',
 };
 
 const comment = 'Merry Christmas!';
@@ -21,8 +23,19 @@ const result = mount(<Composer { ...props } />);
 
 const _submitCommentSpy = jest.spyOn(result.instance(), '_submitComment');
 const _handleFormSubmitSpy = jest.spyOn(result.instance(), '_handleFormSubmit');
+const _updateCommentSpy = jest.spyOn(result.instance(), '_updateComment');
+const _submitOnEnterSpy = jest.spyOn(result.instance(), '_submitOnEnter');
 
 describe('Composer component:', () => {
+    test(' should have ', () => {
+        expect(result.find('section').toHaveLength(1);
+    });
+
+    test('Composer should have one element with "composer" class', () => {
+        expect(result.find('composer').toHaveLength(1);
+        expect(result.find('section').hasClass('composer'));
+    });
+
     test('should have 1 "section" element', () => {
         expect(result.find('section')).toHaveLength(1);
     });
@@ -91,5 +104,13 @@ describe('Composer component:', () => {
     test('_submitComment and _handleFormSubmit class methods should be invoked once after form is submitted', () => {
         expect(_submitCommentSpy).toHaveBeenCalledTimes(1);
         expect(_handleFormSubmitSpy).toHaveBeenCalledTimes(1);
+        //expect(_updateCommentSpy).toHaveBeenCalledTimes(1);
+        //expect(_submitOnEnterSpy).toHaveBeenCalledTimes(1);
     });
+
+    test('avatar should be MyAvatar, _currentUserFirstName should be Oksana', () => {
+        expect(result.props().avatar).toBe('MyAvatar');
+        expect(result.props()._currentUserFirstName).toBe('Oksana');
+    });
+
 });
