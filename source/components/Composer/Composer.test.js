@@ -28,11 +28,11 @@ const _submitOnEnterSpy = jest.spyOn(result.instance(), '_submitOnEnter');
 
 describe('Composer component:', () => {
     test(' should have ', () => {
-        expect(result.find('section').toHaveLength(1);
+        expect(result.find('section')).toHaveLength(1);
     });
 
     test('Composer should have one element with "composer" class', () => {
-        expect(result.find('composer').toHaveLength(1);
+        expect(result.find('.composer')).toHaveLength(1);
         expect(result.find('section').hasClass('composer'));
     });
 
@@ -104,9 +104,15 @@ describe('Composer component:', () => {
     test('_submitComment and _handleFormSubmit class methods should be invoked once after form is submitted', () => {
         expect(_submitCommentSpy).toHaveBeenCalledTimes(1);
         expect(_handleFormSubmitSpy).toHaveBeenCalledTimes(1);
-        //expect(_updateCommentSpy).toHaveBeenCalledTimes(1);
-        //expect(_submitOnEnterSpy).toHaveBeenCalledTimes(1);
     });
+
+    test('should handle textarea "keypress" event', () => {
+        result.find('textarea').simulate('keypress');
+
+        expect(_submitOnEnterSpy).toHaveBeenCalledTimes(1);
+    });
+
+    //expect(_submitCommentSpy).toHaveBeenCalledTimes(1);
 
     test('avatar should be MyAvatar, _currentUserFirstName should be Oksana', () => {
         expect(result.props().avatar).toBe('MyAvatar');
